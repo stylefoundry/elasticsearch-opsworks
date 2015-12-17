@@ -1,4 +1,5 @@
 require 'aws-sdk'
+require 'logger'
 
 
 SUCCESS_STATS = [:create_complete, :update_complete, :update_rollback_complete]
@@ -17,7 +18,8 @@ DEFAULT_RECIPES = [
 ].join(",")
 
 def opsworks
-  Aws::OpsWorks::Client.new({region: get_required("AWS_REGION")})
+  Aws.config[:logger] = Logger.new(STDOUT)
+  Aws::OpsWorks::Client.new({region: get_required("OPSWORKS_AWS_REGION")})
 end
 
 def wait_for_cf_stack_op_to_finish
@@ -66,6 +68,7 @@ def all_availability_zones
 end
 
 def get_all_instances(layer_id)
+  puts opsworks.inspect
   response = opsworks.describe_instances({layer_id: layer_id})
   response[:instances]
 end

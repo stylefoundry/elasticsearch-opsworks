@@ -4,7 +4,7 @@
         "CookbookRepo": {
             "Description": "GitURL",
             "Type": "String",
-            "Default": "https://github.com/ThoughtWorksStudios/opsworks-elasticsearch-cookbook"
+            "Default": "https://github.com/stylefoundry/opsworks-elasticsearch-cookbook"
         },
 
         "CookbookRepoRevision": {
