@@ -8,7 +8,6 @@ DEFAULT_RECIPES = [
   "apt",
   "ark",
   "elasticsearch",
-  "elasticsearch::aws",
   "elasticsearch::proxy",
   "java",
   "layer-custom::esplugins",
