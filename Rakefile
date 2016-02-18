@@ -200,6 +200,7 @@ task :provision do
 
   add_param_if_set(parameters, "ElasticSearchVersion", "ELASTICSEARCH_VERSION")
   add_param_if_set(parameters, "ElasticSearchAWSCloudPluginVersion", "ELASTICSEARCH_AWS_PLUGIN_VERSION")
+  add_param_if_set(parameters, "CookbookRepoRevision", "ELASTICSEARCH_COOKBOOK_VERSION")
 
   params = parameters.inject([]) do |array, (key, value)|
     array << { parameter_key: key, parameter_value: value }
