@@ -10,13 +10,13 @@
         "CookbookRepoRevision": {
             "Description": "Git Revision/Tag",
             "Type": "String",
-            "Default": "master"
+            "Default": "0.0.2"
         },
 
         "ElasticSearchVersion": {
             "Description": "The version of ElasticSearch to install.",
             "Type": "String",
-            "Default": "2.1"
+            "Default": "2.1.0"
         },
 
         "ElasticSearchAWSCloudPluginVersion": {
