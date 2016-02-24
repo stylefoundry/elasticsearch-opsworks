@@ -98,8 +98,14 @@
             "Default": 0,
             "MinValue" : "0",
             "MaxValue" : "65535"
-        }
+        },
 
+        "S3Archive": {
+            "Description": "S3ArchiveURL",
+            "Type": "String",
+            "Default":
+"https://s3-eu-west-1.amazonaws.com/spicerack-cookbooks/cookbooks-1456310384.tar.gz"
+        }
     },
 
     "Outputs": {
@@ -188,11 +194,6 @@
                     },
                     "elasticsearch": {
                         "version": { "Ref": "ElasticSearchVersion" },
-                        "plugins" : {
-                            "elasticsearch/elasticsearch-cloud-aws": {
-                                "version": { "Ref": "ElasticSearchAWSCloudPluginVersion" }
-                            }
-                        },
                         "nginx": {
                             "users": [{
                                 "username": { "Ref": "SearchUser" },
@@ -257,11 +258,8 @@
                 "UseCustomCookbooks": true,
                 "UseOpsworksSecurityGroups": false,
                 "CustomCookbooksSource": {
-                    "Type": "git",
-                    "Url": {
-                        "Ref": "CookbookRepo"
-                    },
-                    "Revision": { "Ref": "CookbookRepoRevision" }
+                    "Type": "archive",
+                    "Url": { "Ref": "S3Archive" }
                 }
             }
         },
